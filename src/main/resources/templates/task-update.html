@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение статуса задачи</title>
+</head>
+<body>
+  <form action="#" th:action="@{/task-update}" th:object="${task}" method="post">
+    <label for="description">Описание</label>
+    <input type="text" id="description" th:field="*{description}">
+    <label for="status">Статус</label>
+    <input type="text" id="status" th:field="*{taskStatus}">
+    <input type="submit" value="Изменить">
+  </form>
+</body>
+</html>

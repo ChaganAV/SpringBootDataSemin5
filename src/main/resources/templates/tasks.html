@@ -22,6 +22,8 @@
             <td th:text="${task.description}"></td>
             <td th:text="${task.taskStatus}"></td>
             <td th:text="${task.dateBegin}"></td>
+            <td><a th:href="@{task-update/{id}(id=${task.id})}">Изменить статус</a></td>
+            <td><a th:href="@{task-delete/{id}(id=${task.id})}">Удалить</a></td>
         </tr>
         </tbody>
     </table>

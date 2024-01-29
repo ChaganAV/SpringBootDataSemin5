@@ -37,6 +37,8 @@ public class TaskServiceImpl implements TaskService{
 
     @Override
     public Task createTask(Task task) {
+        task.setTaskStatus(TaskStatus.NOT_STARTED);
+        task.setDateBegin(LocalDateTime.now());
         return taskRepository.save(task);
     }
 
