@@ -9,6 +9,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, Long> {
+    /**
+     * поиск по статусу задаччи
+     * @param status статус
+     * @return список задач
+     */
     //@Query("SELECT t FROM Tasks t WHERE t.status = ?1")
     List<Task> findByStatus(TaskStatus status);
 }
