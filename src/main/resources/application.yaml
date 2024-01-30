@@ -1,8 +1,8 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/mytasks
-    username: mytasks
-    password: secret
+  #datasource:
+  #  url: jdbc:postgresql://localhost:5432/mytasks
+  #  username: mytasks
+  #  password: secret
   jpa:
     hibernate:
       ddl-auto: update

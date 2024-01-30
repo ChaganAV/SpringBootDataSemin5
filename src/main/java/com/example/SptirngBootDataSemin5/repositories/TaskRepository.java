@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
-    /*@Query("SELECT t FROM Tasks t WHERE t.status = ?1")
-    List<Task> findByStatus(TaskStatus status);*/
+    //@Query("SELECT t FROM Tasks t WHERE t.status = ?1")
+    List<Task> findByStatus(TaskStatus status);
 }

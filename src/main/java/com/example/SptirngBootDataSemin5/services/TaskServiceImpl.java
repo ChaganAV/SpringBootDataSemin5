@@ -30,10 +30,10 @@ public class TaskServiceImpl implements TaskService{
                 .orElseThrow(() -> new RuntimeException("Task not found"));
     }
 
-    /*@Override
+    @Override
     public List<Task> findByStatus(TaskStatus status) {
         return taskRepository.findByStatus(status);
-    }*/
+    }
 
     @Override
     public Task createTask(Task task) {
@@ -43,8 +43,8 @@ public class TaskServiceImpl implements TaskService{
     }
 
     @Override
-    public Task updateTask(Long id, Task task) {
-        Task existTask = getTaskById(id);
+    public Task updateTask(Task task) {
+        Task existTask = getTaskById((long)task.getId());
         existTask.setDescription(task.getDescription());
         existTask.setDateBegin(LocalDateTime.now());
         return taskRepository.save(existTask);

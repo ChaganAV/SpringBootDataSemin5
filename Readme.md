@@ -24,5 +24,13 @@ enum TaskStatus {
 NOT_STARTED, IN_PROGRESS, COMPLETED;
 }
 
-Задание со звездочкой:
-Приложен к материалам семинара файл StrongHomeTask.txt
+ОШИБКА!
+org.springframework.beans.factory.UnsatisfiedDependencyException: 
+Error creating bean with name 'taskController' defined in file [C:\Projects\Java\Java Spring\SptirngBootDataSemin5\target\classes\com\example\SptirngBootDataSemin5\controllers\TaskController.class]: 
+Unsatisfied dependency expressed through constructor parameter 0: 
+Error creating bean with name 'taskServiceImpl' defined in file [C:\Projects\Java\Java Spring\SptirngBootDataSemin5\target\classes\com\example\SptirngBootDataSemin5\services\TaskServiceImpl.class]: 
+Unsatisfied dependency expressed through constructor parameter 0: 
+Error creating bean with name 'taskRepository' defined in com.example.SptirngBootDataSemin5.repositories.TaskRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: 
+Could not create query for public abstract java.util.List com.example.SptirngBootDataSemin5.repositories.TaskRepository.findByStatus(com.example.SptirngBootDataSemin5.model.TaskStatus); Reason: 
+Failed to create query for method public abstract java.util.List com.example.SptirngBootDataSemin5.repositories.TaskRepository.findByStatus(com.example.SptirngBootDataSemin5.model.TaskStatus); 
+No property 'status' found for type 'Task'

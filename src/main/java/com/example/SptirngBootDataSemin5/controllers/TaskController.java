@@ -34,9 +34,9 @@ public class TaskController {
         return "task-update";
     }
 
-    @PostMapping("/task-update/{id}")
-    public String updateTask(@PathVariable Long id, @RequestBody Task task){
-        taskService.updateTask(id,task);
+    @PostMapping("/task-update")
+    public String updateTask(@ModelAttribute("task") Task task){
+        taskService.updateTask(task);
         return "redirect:/tasks";
     }
 
