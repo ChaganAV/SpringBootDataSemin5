@@ -10,26 +10,47 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * имплементирует сервис задач
+ */
 @Service
 public class TaskServiceImpl implements TaskService{
     private final TaskRepository taskRepository;
 
+    /**
+     * внедряем репозиторий через зависимости
+     * @param taskRepository
+     */
     @Autowired
     public TaskServiceImpl(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
 
+    /**
+     * получает список задач
+     * @return
+     */
     @Override
     public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
 
+    /**
+     * поиск задачи по ИД
+     * @param id
+     * @return
+     */
     @Override
     public Task getTaskById(Long id) {
         return taskRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Task not found"));
     }
 
+    /**
+     * поиск задач по статусу
+     * @param status статус задачи
+     * @return
+     */
     @Override
     public List<Task> findByStatus(TaskStatus status) {
         return taskRepository.findByStatus(status);
@@ -42,6 +63,11 @@ public class TaskServiceImpl implements TaskService{
         return taskRepository.save(task);
     }
 
+    /**
+     * изменение задачи
+     * @param task
+     * @return
+     */
     @Override
     public Task updateTask(Task task) {
         Task existTask = getTaskById((long)task.getId());
