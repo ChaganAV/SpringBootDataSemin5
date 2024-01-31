@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Task {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(nullable = false, name = "description", length = 2000)
     private String Description;
     //@Column(nullable = false, name = "status")
-    @Enumerated(EnumType.STRING)
+    //@Enumerated(EnumType.STRING)
     private TaskStatus taskStatus;
     @Column(nullable = false, name = "date_begin")
     private LocalDateTime dateBegin;

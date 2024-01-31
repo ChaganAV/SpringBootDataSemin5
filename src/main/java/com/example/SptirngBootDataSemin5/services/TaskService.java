@@ -27,10 +27,10 @@ public interface TaskService {
 
     /**
      * выборка задач по статусу задачи
-     * @param status статус задачи
+     * @param taskStatus статус задачи
      * @return список задач
      */
-    List<Task> findByStatus(TaskStatus status);
+    List<Task> findByTaskStatus(TaskStatus taskStatus);
 
     /**
      * создание задачи

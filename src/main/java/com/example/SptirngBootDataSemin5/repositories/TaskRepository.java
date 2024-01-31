@@ -11,9 +11,9 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Long> {
     /**
      * поиск по статусу задаччи
-     * @param status статус
+     * @param taskStatus статус
      * @return список задач
      */
     //@Query("SELECT t FROM Tasks t WHERE t.status = ?1")
-    List<Task> findByStatus(TaskStatus status);
+    List<Task> findByTaskStatus(TaskStatus taskStatus);
 }
