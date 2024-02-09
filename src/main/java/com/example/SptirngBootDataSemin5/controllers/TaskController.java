@@ -85,4 +85,11 @@ public class TaskController {
         taskService.createTask(task);
         return "redirect:/tasks";
     }
+    @GetMapping("/task-delete/{id}")
+    public String deleteTask(@PathVariable("id") Long id, Model model){
+        taskService.deleteTask(id);
+        List<Task> tasks = taskService.getAllTasks();
+        model.addAttribute("tasks", tasks);
+        return "tasks";
+    }
 }
