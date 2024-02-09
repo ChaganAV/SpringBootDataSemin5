@@ -1,5 +1,6 @@
 package com.example.SptirngBootDataSemin5.services;
 
+import com.example.SptirngBootDataSemin5.aspects.TrackUserAction;
 import com.example.SptirngBootDataSemin5.model.Task;
 import com.example.SptirngBootDataSemin5.model.TaskStatus;
 import com.example.SptirngBootDataSemin5.repositories.TaskRepository;
@@ -31,6 +32,7 @@ public class TaskServiceImpl implements TaskService{
      * @return
      */
     @Override
+    @TrackUserAction
     public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
@@ -72,6 +74,14 @@ public class TaskServiceImpl implements TaskService{
     public Task updateTask(Task task) {
         Task existTask = getTaskById((long)task.getId());
         existTask.setDescription(task.getDescription());
+        if (existTask.getTaskStatus() == TaskStatus.NOT_STARTED)
+            existTask.setTaskStatus(TaskStatus.IN_PROGRESS);
+        else {
+            if (existTask.getTaskStatus() == TaskStatus.IN_PROGRESS)
+                existTask.setTaskStatus(TaskStatus.COMPLETED);
+            else if(existTask.getTaskStatus() == TaskStatus.COMPLETED)
+                existTask.setTaskStatus(TaskStatus.NOT_STARTED);
+        }
         existTask.setDateBegin(LocalDateTime.now());
         return taskRepository.save(existTask);
     }

@@ -1,5 +1,6 @@
 package com.example.SptirngBootDataSemin5.controllers;
 
+import com.example.SptirngBootDataSemin5.aspects.TrackUserAction;
 import com.example.SptirngBootDataSemin5.model.Task;
 import com.example.SptirngBootDataSemin5.services.TaskService;
 import org.springframework.stereotype.Controller;
@@ -48,6 +49,7 @@ public class TaskController {
      * @return страница для заполнения
      */
     @GetMapping("/task-update/{id}")
+    //@TrackUserAction
     public String updateTaskForm(@PathVariable("id") Long id, Model model){
         Task task = taskService.getTaskById(id);
         model.addAttribute("task", task);
@@ -61,7 +63,14 @@ public class TaskController {
      */
     @PostMapping("/task-update")
     public String updateTask(@ModelAttribute("task") Task task){
-        taskService.updateTask(task);
+        try {
+            //System.out.println(task.getId());
+            //System.out.println(task.getDescription());
+            //System.out.println(task.getTaskStatus());
+            taskService.updateTask(task);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         return "redirect:/tasks";
     }
 

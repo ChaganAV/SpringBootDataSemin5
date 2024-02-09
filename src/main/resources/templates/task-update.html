@@ -6,10 +6,12 @@
 </head>
 <body>
   <form action="#" th:action="@{/task-update}" th:object="${task}" method="post">
-    <label for="description">Описание</label>
+    <label for name="id">ID</label>
+      <input readonly id="id" type="text" th:field="*{id}" placeholder="ID">
+      <label for="description">Описание</label>
     <input type="text" id="description" th:field="*{description}">
     <label for="status">Статус</label>
-    <input type="text" id="status" th:field="*{taskStatus}">
+    <input readonly type="text" id="status" th:field="*{taskStatus}">
     <input type="submit" value="Изменить">
   </form>
 </body>
